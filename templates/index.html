@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>URL Question Answering</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; max-width: 800px; margin: auto; }
+    input, textarea, button { width: 100%; margin-top: 1rem; padding: 0.5rem; }
+  </style>
+</head>
+<body>
+  <h1>Ask a Question About a Web Page</h1>
+  <form method="POST">
+    <label for="url">Enter a URL:</label>
+    <input type="text" name="url" required placeholder="https://example.com/article" />
+
+    <label for="question">Your Question:</label>
+    <textarea name="question" required placeholder="What is this page about?" rows="4"></textarea>
+
+    <button type="submit">Get Answer</button>
+  </form>
+
+  {% if answer %}
+    <h2>Answer:</h2>
+    <p>{{ answer }}</p>
+  {% elif error %}
+    <p style="color: red;">{{ error }}</p>
+  {% endif %}
+</body>
+</html>
